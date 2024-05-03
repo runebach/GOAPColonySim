@@ -226,7 +226,10 @@ GameObject:
   - component: {fileID: 7278040541723613512}
   - component: {fileID: 7712487350467425906}
   - component: {fileID: 363923334577754510}
-  - component: {fileID: 8015191754983625890}
+  - component: {fileID: 5558439457455430391}
+  - component: {fileID: 1769688813859850565}
+  - component: {fileID: 8265805400424321235}
+  - component: {fileID: 2978518932189602407}
   m_Layer: 0
   m_Name: ColonistBase
   m_TagString: Untagged
@@ -362,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b76d0983a8ee454981ea7325685772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionName: action
+  ActionName: Idle
   Cost: 1
   Target: {fileID: 0}
   TargetTag: 
@@ -401,7 +404,7 @@ MonoBehaviour:
     value: 0
   Running: 0
   restoredHunger: 60
---- !u!114 &8015191754983625890
+--- !u!114 &5558439457455430391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,15 +413,82 @@ MonoBehaviour:
   m_GameObject: {fileID: 7721249647857998162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 909a9fcf2fdeb704a8fef612d0c4ad94, type: 3}
+  m_Script: {fileID: 11500000, guid: a83c852ae697d664daba6694b503b0bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionName: Sleep
+  Cost: 1
+  Target: {fileID: 0}
+  TargetTag: Bed
+  Duration: 30
+  Agent: {fileID: 0}
+  preConditions:
+  - key: NeedsToSleep
+    value: 0
+  postConditions:
+  - key: EnergyRestored
+    value: 0
+  Running: 0
+  restoredEnergy: 100
+--- !u!114 &1769688813859850565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721249647857998162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7707925bbe30c7144b292f17b31e856d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Hunger
   BeliefState: NeedsToEat
   InitialStrength: 100
-  StateDecayRate: 2
+  StateDecayRate: 1
   LowerActionBoundary: 25
   currentStrength: 0
+  currentDecayRate: 0
+  HungerHealthDecay: 1
+--- !u!114 &8265805400424321235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721249647857998162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5662a647e627e9a448ef056eea9e28fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Health
+  BeliefState: NeedsToHeal
+  InitialStrength: 100
+  StateDecayRate: 0
+  LowerActionBoundary: 25
+  currentStrength: 0
+  currentDecayRate: 0
+--- !u!114 &2978518932189602407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721249647857998162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cf0652d8506c714eb59134d4a04cae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Energy
+  BeliefState: NeedsToSleep
+  InitialStrength: 100
+  StateDecayRate: 0.5
+  LowerActionBoundary: 25
+  currentStrength: 10
+  currentDecayRate: 0
+  SpeedModifier: 0.5
 --- !u!1 &8841952229061626879
 GameObject:
   m_ObjectHideFlags: 0

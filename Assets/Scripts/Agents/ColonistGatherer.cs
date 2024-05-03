@@ -7,9 +7,9 @@ public class ColonistGatherer : GAgent
 {
 
     // Start is called before the first frame update
-    new void Start()
+    new void Awake()
     {
-        base.Start();
+        base.Awake();
 
         // GOALS
         SubGoal idle = new SubGoal("Idle", 1, false);

@@ -18,7 +18,7 @@ public class GAgent : MonoBehaviour
     public Dictionary<SubGoal, int> goals = new Dictionary<SubGoal, int>();
     public GInventory Inventory = new GInventory();
     public WorldStates Beliefs = new WorldStates();
-    public List<GStateManager> gStateMonitors;
+    public List<GStateManager> gStateMonitors = new List<GStateManager>();
     public GAction CurrentAction;
     private GPlanner planner;
     private Queue<GAction> actionQueue;
@@ -26,9 +26,12 @@ public class GAgent : MonoBehaviour
     private Vector3 destination = Vector3.zero;
     private bool invoked = false;
     // Start is called before the first frame update
-    public void Start()
+    public void Awake()
     {
-        gStateMonitors = GetComponents<GStateManager>().ToList();
+        GStateManager[] states = GetComponents<GStateManager>();
+        foreach(GStateManager state in states){
+            gStateMonitors.Add(state);
+        }
         GAction[] acts = GetComponents<GAction>();
         foreach(GAction a in acts){
             Actions.Add(a);
