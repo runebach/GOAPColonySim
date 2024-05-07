@@ -11,7 +11,6 @@ public class Hunger : GStateManager
     new void Start(){
         base.Start();
         health = Agent.gStateMonitors.FirstOrDefault(x => x.GetType() == typeof(Health));
-        Debug.Log(Agent.gStateMonitors.Count());
     }
 
     protected override void OnStateMinimum()

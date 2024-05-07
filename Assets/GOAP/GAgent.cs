@@ -20,6 +20,7 @@ public class GAgent : MonoBehaviour
     public WorldStates Beliefs = new WorldStates();
     public List<GStateManager> gStateMonitors = new List<GStateManager>();
     public GAction CurrentAction;
+    public float actionDistance = 2.0f;
     private GPlanner planner;
     private Queue<GAction> actionQueue;
     private SubGoal currentGoal;
@@ -48,7 +49,7 @@ public class GAgent : MonoBehaviour
     {
         if(CurrentAction != null && CurrentAction.Running){
             float distanceToTarget = Vector3.Distance(destination, transform.position);
-            if(distanceToTarget < 2f){
+            if(distanceToTarget < actionDistance){
                 if(!invoked){
                     Invoke("CompleteAction", CurrentAction.Duration);
                     invoked = true;
@@ -90,7 +91,7 @@ public class GAgent : MonoBehaviour
                     if(dest != null){
                         destination = dest.position;
                     }
-
+                    
                     CurrentAction.Agent.SetDestination(destination);
                 }
             }

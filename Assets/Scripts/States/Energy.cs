@@ -19,7 +19,10 @@ public class Energy : GStateManager
         else{
             speed = 1;
         }
-        Agent.CurrentAction.Agent.speed *= speed;
+        if(Agent.CurrentAction != null){
+            Agent.CurrentAction.Agent.speed *= speed;
+        }
+        
 
     }
 }

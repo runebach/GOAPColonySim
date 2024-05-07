@@ -9,21 +9,32 @@ public class Idle : GAction
     Vector3 destination;
     GameObject waypoint;
     NavMeshPath navMeshPath;
+    GAgent gAgent;
+
 
     void Start(){
         navMeshPath = new NavMeshPath();
+        gAgent = GetComponent<GAgent>();
     }
     public override bool PrePerform()
     {
-        destination = transform.position + new Vector3(Random.Range(-idleDistance, idleDistance), transform.position.y, Random.Range(-idleDistance, idleDistance));
-        waypoint = new GameObject("Waypoint");
-        waypoint.transform.position = destination;
-        if(!Agent.CalculatePath(waypoint.transform.position, navMeshPath)){
-            Destroy(waypoint);
+        Vector3 randomPosition = gameObject.transform.position + Random.insideUnitSphere * idleDistance;
+        Vector3 destination;
+
+        NavMeshHit hit;
+        if(!NavMesh.SamplePosition(randomPosition, out hit, 1.0f, NavMesh.AllAreas)){
             return false;
         }
+        destination = hit.position;
+
+        Agent.CalculatePath(destination, navMeshPath);
+        if(navMeshPath.status != NavMeshPathStatus.PathComplete){
+            return false;
+        }
+            
+        waypoint = new GameObject("Waypoint");
+        waypoint.transform.position = destination;
         Target = waypoint;
-        
         
         return true;
     }
