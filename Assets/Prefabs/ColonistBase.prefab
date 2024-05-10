@@ -326,7 +326,7 @@ MonoBehaviour:
   Agent: {fileID: 0}
   preConditions:
   - key: GatherableGold
-    value: 0
+    value: 1
   postConditions:
   - key: hasGold
     value: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   Agent: {fileID: 0}
   preConditions:
   - key: GatherableFood
-    value: 0
+    value: 1
   postConditions:
   - key: hasFood
     value: 0
