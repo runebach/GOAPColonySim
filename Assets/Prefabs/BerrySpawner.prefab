@@ -49,9 +49,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4822577883306273500, guid: d8af70a120f5f7941aa99dc440a4ced0, type: 3}
+      propertyPath: heightOffset
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822577883306273500, guid: d8af70a120f5f7941aa99dc440a4ced0, type: 3}
       propertyPath: PrefabToSpawn
       value: 
       objectReference: {fileID: 8020338116652938281, guid: d64a681eba76214419e738f35b045d17, type: 3}
+    - target: {fileID: 4822577883306273500, guid: d8af70a120f5f7941aa99dc440a4ced0, type: 3}
+      propertyPath: baseSpawnRate
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4822577883306273500, guid: d8af70a120f5f7941aa99dc440a4ced0, type: 3}
       propertyPath: nameOfResourceQueue
       value: gatherableFood

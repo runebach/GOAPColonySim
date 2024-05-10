@@ -15,11 +15,13 @@ public class ColonistGatherer : GAgent
         SubGoal idle = new SubGoal("Idle", 1, false);
         goals.Add(idle, 1);
         SubGoal foodGathered = new SubGoal("FoodGathered", 1, false);
-        goals.Add(foodGathered, 2);
+        goals.Add(foodGathered, 3);
         SubGoal energyRestored = new SubGoal("EnergyRestored", 1, false);
-        goals.Add(energyRestored, 3);
+        goals.Add(energyRestored, 4);
         SubGoal hungerRestored = new SubGoal("HungerRestored", 1, false);
-        goals.Add(hungerRestored, 4);
+        goals.Add(hungerRestored, 5);
+        SubGoal goldGathered = new SubGoal("GoldGathered", 1, false);
+        goals.Add(goldGathered, 2);
     }
 
 

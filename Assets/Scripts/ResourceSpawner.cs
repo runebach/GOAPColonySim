@@ -12,9 +12,8 @@ public class ResourceSpawner : MonoBehaviour
     public float baseSpawnRate;
     public float spawnRateRandomizer;
     public string nameOfResourceQueue;
+    public float heightOffset;
     
-    // private Vector3 bottomLeft;
-    // private Vector3 topRight;
     private GameObject navMeshSurfaceObject;
     private NavMeshSurface navMeshSurface;
     private BoxCollider spawnArea;
@@ -52,6 +51,7 @@ public class ResourceSpawner : MonoBehaviour
                 NavMeshHit hit;
                 if(NavMesh.SamplePosition(spawnPoint, out hit, 1.0f, NavMesh.AllAreas)){
                     spawnPoint = hit.position;
+                    spawnPoint.y += heightOffset;
                     GameObject spawnedResource = Instantiate(PrefabToSpawn, spawnPoint, Quaternion.identity);
                     spawnedResource.transform.parent = navMeshSurfaceObject.transform;
                     GWorld.Instance.GetQueue(nameOfResourceQueue).AddResource(spawnedResource);

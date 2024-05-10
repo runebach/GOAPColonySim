@@ -16,7 +16,7 @@ public class Hunger : GStateManager
     protected override void OnStateMinimum()
     {
         if(currentStrength <= 0){
-            health.StateDecayRate = HungerHealthDecay;
+            health.currentDecayRate = HungerHealthDecay;
         }
         else{
             health.StateDecayRate = 0;

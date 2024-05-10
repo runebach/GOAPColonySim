@@ -222,8 +222,10 @@ GameObject:
   - component: {fileID: 4137510974679351040}
   - component: {fileID: 4161061376049778216}
   - component: {fileID: 4487192378451196985}
+  - component: {fileID: 6686309985066767612}
   - component: {fileID: 2771711066190262515}
   - component: {fileID: 7278040541723613512}
+  - component: {fileID: 5314213301122349042}
   - component: {fileID: 7712487350467425906}
   - component: {fileID: 363923334577754510}
   - component: {fileID: 5558439457455430391}
@@ -303,6 +305,32 @@ MonoBehaviour:
   Actions: []
   gStateMonitors: []
   CurrentAction: {fileID: 0}
+  actionDistance: 2
+--- !u!114 &6686309985066767612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721249647857998162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9002870490b55342b09f72455997fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionName: Gather Gold
+  Cost: 1
+  Target: {fileID: 0}
+  TargetTag: GatherableGold
+  Duration: 5
+  Agent: {fileID: 0}
+  preConditions:
+  - key: GatherableGold
+    value: 0
+  postConditions:
+  - key: hasGold
+    value: 0
+  Running: 0
 --- !u!114 &2771711066190262515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +379,31 @@ MonoBehaviour:
     value: 1
   postConditions:
   - key: FoodGathered
+    value: 0
+  Running: 0
+--- !u!114 &5314213301122349042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721249647857998162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0817dd8f763c24eb18308846319140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionName: Store Gold
+  Cost: 1
+  Target: {fileID: 0}
+  TargetTag: StorageArea
+  Duration: 1
+  Agent: {fileID: 0}
+  preConditions:
+  - key: hasGold
+    value: 0
+  postConditions:
+  - key: GoldGathered
     value: 0
   Running: 0
 --- !u!114 &7712487350467425906

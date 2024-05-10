@@ -8,6 +8,7 @@ TagManager:
   - GatherableFood
   - StorageArea
   - NavMeshSurface
+  - GatherableGold
   layers:
   - Default
   - TransparentFX
