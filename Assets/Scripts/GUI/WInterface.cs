@@ -77,7 +77,7 @@ public class WInterface : MonoBehaviour
         }
         
         else if(focusObject && Input.GetMouseButton(0)){
-
+            
             
             int layerMask = 1 << 8;
             RaycastHit hitMove;
@@ -85,6 +85,7 @@ public class WInterface : MonoBehaviour
             if(!Physics.Raycast(rayMove, out hitMove, Mathf.Infinity, layerMask)){
                 return;
             }
+
             
             if(!offSetCalc){
                 clickOffset = hitMove.point - focusObject.transform.position;
