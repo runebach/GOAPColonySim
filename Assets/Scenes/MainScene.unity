@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -793,7 +793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf63fc00defb2564eb8ddc6d52cb1010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllResources: []
+  AllResources:
+  - {fileID: 700323581860527004, guid: f920d1db4e69b7e488b264f0bbcf314b, type: 3}
   CollisionParent: {fileID: 1310013504}
   Surface: {fileID: 1310013505}
 --- !u!4 &708822768
@@ -2114,7 +2115,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1668817336}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 708822767}
+        m_TargetAssemblyTypeName: WInterface, Assembly-CSharp
+        m_MethodName: SelectBed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1668817336
 MonoBehaviour:
   m_ObjectHideFlags: 0

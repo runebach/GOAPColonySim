@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
 public class WInterface : MonoBehaviour
@@ -16,6 +17,18 @@ public class WInterface : MonoBehaviour
     public GameObject[] AllResources;
     public GameObject CollisionParent;
     public NavMeshSurface Surface;
+
+    // Det her lort skal REFAKTORERES
+    public void SelectBed(){
+        if(GWorld.Instance.GetQueue("gatheredGold").Queue.Count >= 3){
+            newResourcePrefab = AllResources[0];
+            for(int i = 1; i < 3; i++){
+                GWorld.Instance.GetQueue("gatheredGold").RemoveResource();
+            }
+        }
+        Debug.Log("SelectBed(). newResourcePrefab: " + newResourcePrefab != null);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,12 +55,13 @@ public class WInterface : MonoBehaviour
 
             
             
-
+            Debug.Log(newResourcePrefab);
             if(r != null){
                 focusObject = hit.transform.gameObject;
                 focusObjectData = r.Info;
             }
             else if(newResourcePrefab != null){
+                Debug.Log("Instantiate");
                 goalPos = hit.point;
                 focusObject = Instantiate(newResourcePrefab, goalPos, newResourcePrefab.transform.rotation);
                 focusObjectData = focusObject.GetComponent<Resource>().Info;  
@@ -92,8 +106,14 @@ public class WInterface : MonoBehaviour
                 offSetCalc = true;
             }
             goalPos = hitMove.point - clickOffset;
+            NavMeshHit hit;
+            if(NavMesh.SamplePosition(goalPos, out hit, 10.0f,NavMesh.AllAreas)){
+                goalPos = hit.position;
+            }
+
             
             focusObject.transform.position = goalPos;
+
         }
 
         if(focusObject && Input.GetKeyDown(KeyCode.R)){
