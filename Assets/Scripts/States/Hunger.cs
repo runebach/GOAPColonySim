@@ -20,7 +20,6 @@ public class Hunger : GStateManager
         }
         else{
             health.currentDecayRate = 0;
-            Debug.Log("hello :3");
         }
     }
 }

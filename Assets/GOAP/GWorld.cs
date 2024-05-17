@@ -51,6 +51,8 @@ public sealed class GWorld
     private static ResourceQueue beds;
     private static ResourceQueue gatherableGold;
     private static ResourceQueue gatheredGold;
+    private static ResourceQueue gatherableMedicine;
+    private static ResourceQueue gatheredMedicine;
 
     static GWorld(){
         world = new WorldStates();
@@ -66,6 +68,10 @@ public sealed class GWorld
         resources.Add("gatherableGold", gatherableGold);
         gatheredGold = new ResourceQueue("", "", world);
         resources.Add("gatheredGold", gatheredGold);
+        gatherableMedicine = new ResourceQueue("GatherableMedicine", "GatherableMedicine", world);
+        resources.Add("gatherableMedicine", gatherableMedicine);
+        gatheredMedicine = new ResourceQueue("", "", world);
+        resources.Add("gatheredMedicine", gatheredMedicine);
 
         Time.timeScale = 5;
     }
