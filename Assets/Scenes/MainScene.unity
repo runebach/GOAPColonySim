@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -774,6 +774,8 @@ GameObject:
   m_Component:
   - component: {fileID: 708822768}
   - component: {fileID: 708822767}
+  - component: {fileID: 708822769}
+  - component: {fileID: 708822770}
   m_Layer: 0
   m_Name: WInterface
   m_TagString: Untagged
@@ -794,6 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllResources:
+  - {fileID: 7721249647857998162, guid: ada8423c7e42f41489ffb8f8665958a9, type: 3}
   - {fileID: 700323581860527004, guid: f920d1db4e69b7e488b264f0bbcf314b, type: 3}
   CollisionParent: {fileID: 1310013504}
   Surface: {fileID: 1310013505}
@@ -812,6 +815,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &708822769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708822766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8595c2e061ab47499350edc5bf5d0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &708822770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708822766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6efe0623350d4e1408d507aabec2e5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllResources:
+  - {fileID: 7721249647857998162, guid: ada8423c7e42f41489ffb8f8665958a9, type: 3}
+  - {fileID: 700323581860527004, guid: f920d1db4e69b7e488b264f0bbcf314b, type: 3}
+  NavMeshParent: {fileID: 1310013504}
+  Surface: {fileID: 1310013505}
 --- !u!1 &712255877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,6 +1656,7 @@ GameObject:
   - component: {fileID: 1542238970}
   - component: {fileID: 1542238969}
   - component: {fileID: 1542238968}
+  - component: {fileID: 1542238971}
   m_Layer: 5
   m_Name: ColonistButton
   m_TagString: Untagged
@@ -1694,7 +1727,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1542238969}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1542238971}
+        m_TargetAssemblyTypeName: BuildButton, Assembly-CSharp
+        m_MethodName: BuildObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1542238969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1733,6 +1778,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542238966}
   m_CullTransparentMesh: 1
+--- !u!114 &1542238971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542238966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d22493131c8308941a7c1934fa3e929c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  cost: 5
 --- !u!1001 &1561228834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2045,6 +2104,7 @@ GameObject:
   - component: {fileID: 1668817337}
   - component: {fileID: 1668817336}
   - component: {fileID: 1668817335}
+  - component: {fileID: 1668817338}
   m_Layer: 5
   m_Name: BedButton
   m_TagString: Untagged
@@ -2116,9 +2176,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 708822767}
-        m_TargetAssemblyTypeName: WInterface, Assembly-CSharp
-        m_MethodName: SelectBed
+      - m_Target: {fileID: 1668817338}
+        m_TargetAssemblyTypeName: BuildButton, Assembly-CSharp
+        m_MethodName: BuildObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2166,6 +2226,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668817333}
   m_CullTransparentMesh: 1
+--- !u!114 &1668817338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668817333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d22493131c8308941a7c1934fa3e929c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  cost: 3
 --- !u!4 &1690916733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 944334713269310695, guid: d64a681eba76214419e738f35b045d17, type: 3}
@@ -3165,7 +3239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2901821688651501247, guid: eb1a91be6e4df354197b4a3f657dde20, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8769947132624073607, guid: eb1a91be6e4df354197b4a3f657dde20, type: 3}
       propertyPath: m_LocalPosition.x

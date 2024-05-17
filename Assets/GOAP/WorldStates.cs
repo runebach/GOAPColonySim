@@ -21,15 +21,15 @@ public class WorldStates
     public void ModifyState(string key, int value){
         if(HasState(key)){
             states[key] += value;
-            if(states[key] == 0){
+            if(states[key] <= 0){
                 RemoveState(key);
             }
         }
-        else{
+        else if(value > 0){
+            
             states.Add(key, value);
-        }
-        if(key == "NeedsToEat"){
-            Debug.Log("what");
+            
+            
         }
     }
     public void RemoveState(string key){

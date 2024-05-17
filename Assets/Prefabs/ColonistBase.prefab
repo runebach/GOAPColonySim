@@ -498,7 +498,7 @@ MonoBehaviour:
   Name: Hunger
   BeliefState: NeedsToEat
   InitialStrength: 100
-  StateDecayRate: 0.5
+  StateDecayRate: 0.25
   LowerActionBoundary: 25
   currentStrength: 0
   currentDecayRate: 0

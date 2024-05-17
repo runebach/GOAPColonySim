@@ -30,6 +30,7 @@ public class ResourceQueue{
     }
     public void RemoveResource(GameObject resource){
         Queue = new Queue<GameObject>(Queue.Where(r => r != resource));
+        WorldStates.ModifyState(State, -1);
     }
     public GameObject RemoveResource(){
         if(Queue.Count <= 0){

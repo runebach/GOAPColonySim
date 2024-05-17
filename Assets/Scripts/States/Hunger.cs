@@ -19,7 +19,8 @@ public class Hunger : GStateManager
             health.currentDecayRate = HungerHealthDecay;
         }
         else{
-            health.StateDecayRate = 0;
+            health.currentDecayRate = 0;
+            Debug.Log("hello :3");
         }
     }
 }
