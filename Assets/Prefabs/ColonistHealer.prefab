@@ -220,15 +220,15 @@ GameObject:
   m_Component:
   - component: {fileID: 3795645086820139854}
   - component: {fileID: 4137510974679351040}
+  - component: {fileID: 8826986174145518282}
   - component: {fileID: 4161061376049778216}
-  - component: {fileID: 4487192378451196985}
-  - component: {fileID: 6686309985066767612}
-  - component: {fileID: 2771711066190262515}
-  - component: {fileID: 7278040541723613512}
-  - component: {fileID: 5314213301122349042}
   - component: {fileID: 7712487350467425906}
   - component: {fileID: 363923334577754510}
   - component: {fileID: 5558439457455430391}
+  - component: {fileID: 8514225349613499570}
+  - component: {fileID: 4222296651660118454}
+  - component: {fileID: 8194101968021491858}
+  - component: {fileID: 816848968075754703}
   - component: {fileID: 1769688813859850565}
   - component: {fileID: 8265805400424321235}
   - component: {fileID: 2978518932189602407}
@@ -267,7 +267,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af286ba723214f4db79132d4032a63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisAgent: {fileID: 4487192378451196985}
+  thisAgent: {fileID: 8826986174145518282}
+--- !u!114 &8826986174145518282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721249647857998162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e430c511defae704eb6e649676bc3deb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Actions: []
+  gStateMonitors: []
+  CurrentAction: {fileID: 0}
+  actionDistance: 2
 --- !u!195 &4161061376049778216
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -290,122 +306,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4487192378451196985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721249647857998162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af6d118100fc09b43a9dc142df66d68d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Actions: []
-  gStateMonitors: []
-  CurrentAction: {fileID: 0}
-  actionDistance: 2
---- !u!114 &6686309985066767612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721249647857998162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9002870490b55342b09f72455997fa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActionName: Gather Gold
-  Cost: 1
-  Target: {fileID: 0}
-  TargetTag: GatherableGold
-  Duration: 5
-  Agent: {fileID: 0}
-  preConditions:
-  - key: GatherableGold
-    value: 1
-  postConditions:
-  - key: hasGold
-    value: 0
-  Running: 0
---- !u!114 &2771711066190262515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721249647857998162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99974a1ccd6dbec4d8975689bc8a1e10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActionName: Gather Food
-  Cost: 1
-  Target: {fileID: 0}
-  TargetTag: GatherableFood
-  Duration: 3
-  Agent: {fileID: 0}
-  preConditions:
-  - key: GatherableFood
-    value: 1
-  postConditions:
-  - key: hasFood
-    value: 0
-  Running: 0
---- !u!114 &7278040541723613512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721249647857998162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c56a865c2c8caaf4f9b66a512cedec8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActionName: Store Food
-  Cost: 1
-  Target: {fileID: 0}
-  TargetTag: StorageArea
-  Duration: 1
-  Agent: {fileID: 0}
-  preConditions:
-  - key: hasFood
-    value: 1
-  postConditions:
-  - key: FoodGathered
-    value: 0
-  Running: 0
---- !u!114 &5314213301122349042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721249647857998162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c0817dd8f763c24eb18308846319140, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActionName: Store Gold
-  Cost: 1
-  Target: {fileID: 0}
-  TargetTag: StorageArea
-  Duration: 1
-  Agent: {fileID: 0}
-  preConditions:
-  - key: hasGold
-    value: 0
-  postConditions:
-  - key: GoldGathered
-    value: 0
-  Running: 0
 --- !u!114 &7712487350467425906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +383,110 @@ MonoBehaviour:
     value: 0
   Running: 0
   restoredEnergy: 100
+--- !u!114 &8514225349613499570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721249647857998162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb51bb0d4e4a70a4ab792a268342304c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionName: Heal Ally
+  Cost: 1
+  Target: {fileID: 0}
+  TargetTag: 
+  Duration: 0
+  Agent: {fileID: 0}
+  preConditions:
+  - key: hasMedicine
+    value: 0
+  - key: HurtColonist
+    value: 0
+  postConditions:
+  - key: AllyHealed
+    value: 0
+  Running: 0
+--- !u!114 &4222296651660118454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721249647857998162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d76d4e7269bc64db34640d8cba1cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionName: Store Medicine
+  Cost: 1
+  Target: {fileID: 0}
+  TargetTag: StorageArea
+  Duration: 2
+  Agent: {fileID: 0}
+  preConditions:
+  - key: hasStorageMedicine
+    value: 0
+  postConditions:
+  - key: MedicineGathered
+    value: 0
+  Running: 0
+--- !u!114 &8194101968021491858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721249647857998162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4dfb3dd57a09b48abb1890bf5c6a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionName: Gather Medicine
+  Cost: 1
+  Target: {fileID: 0}
+  TargetTag: 
+  Duration: 3
+  Agent: {fileID: 0}
+  preConditions:
+  - key: GatherableMedicine
+    value: 0
+  postConditions:
+  - key: hasMedicine
+    value: 0
+  - key: hasStorageMedicine
+    value: 0
+  Running: 0
+--- !u!114 &816848968075754703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721249647857998162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a67533d5e48702d459532d9779e55545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionName: Collect Medicine
+  Cost: 1
+  Target: {fileID: 0}
+  TargetTag: StorageArea
+  Duration: 1
+  Agent: {fileID: 0}
+  preConditions:
+  - key: GatheredMedicine
+    value: 0
+  postConditions:
+  - key: hasMedicine
+    value: 0
+  Running: 0
 --- !u!114 &1769688813859850565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,7 +610,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c370198b30f26474fbdd1a657921bdd6, type: 2}
+  - {fileID: 2100000, guid: 8c34730786c339f49b676d7fedadaef5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

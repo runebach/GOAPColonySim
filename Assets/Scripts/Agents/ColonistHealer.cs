@@ -15,11 +15,13 @@ public class ColonistHealer : GAgent
         SubGoal idle = new SubGoal("Idle", 1, false);
         goals.Add(idle, 1);
         SubGoal allyHealed = new SubGoal("AllyHealed", 1, false);
-        goals.Add(allyHealed, 2);
+        goals.Add(allyHealed, 4);
         SubGoal energyRestored = new SubGoal("EnergyRestored", 1, false);
         goals.Add(energyRestored, 3);
         SubGoal hungerRestored = new SubGoal("HungerRestored", 1, false);
-        goals.Add(hungerRestored, 4);
+        goals.Add(hungerRestored, 5);
+        SubGoal medicineCollected = new SubGoal("MedicineGathered", 1, false);
+        goals.Add(medicineCollected, 2);
     }
 
 

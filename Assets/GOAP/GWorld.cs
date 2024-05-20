@@ -46,6 +46,7 @@ public sealed class GWorld
     private static WorldStates world;
     private static Dictionary<string, ResourceQueue> resources = new Dictionary<string, ResourceQueue>();
     private static ResourceQueue colonists;
+    private static ResourceQueue hurtColonists;
     private static ResourceQueue gatheredFood;
     private static ResourceQueue gatherableFood;
     private static ResourceQueue beds;
@@ -56,8 +57,10 @@ public sealed class GWorld
 
     static GWorld(){
         world = new WorldStates();
-        colonists = new ResourceQueue("", "", world);
+        colonists = new ResourceQueue("Colonists", "Colonists", world);
         resources.Add("colonists", colonists);
+        hurtColonists = new ResourceQueue("", "", world);
+        resources.Add("hurtColonists", hurtColonists);
         gatheredFood = new ResourceQueue("", "", world);
         resources.Add("gatheredFood", gatheredFood);
         gatherableFood = new ResourceQueue("GatherableFood", "GatherableFood", world);

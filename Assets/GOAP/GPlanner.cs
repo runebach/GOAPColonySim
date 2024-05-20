@@ -41,13 +41,12 @@ public class GPlanner
 
         List<Node> leaves = new List<Node>();
         Node start = new Node(null, 0, GWorld.Instance.GetWorld().GetStates(), beliefStates.GetStates(), null);
-
         bool success = BuildGraph(start, leaves, usableActions, goal);
-
         if(!success){
-            // Debug.Log("No Plan");
+            Debug.Log("No Plan");
             return null;
         }
+        
         Node cheapest = null;
         foreach(Node leaf in leaves){
             if(cheapest == null){

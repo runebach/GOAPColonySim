@@ -66,9 +66,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92bb9733448ea8547a7c150cc40c6aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrefabToSpawn: {fileID: 0}
-  maxResourceCount: 15
-  baseSpawnRate: 15
-  spawnRateRandomizer: 5
-  nameOfResourceQueue: 
+  PrefabToSpawn: {fileID: 8020338116652938281, guid: 204f55b262cb04b4faa235f785f578a5, type: 3}
+  maxResourceCount: 10
+  baseSpawnRate: 45
+  spawnRateRandomizer: 10
+  nameOfResourceQueue: gatherableMedicine
   heightOffset: 0
