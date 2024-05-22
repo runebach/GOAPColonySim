@@ -225,10 +225,11 @@ GameObject:
   - component: {fileID: 7712487350467425906}
   - component: {fileID: 363923334577754510}
   - component: {fileID: 5558439457455430391}
-  - component: {fileID: 8514225349613499570}
   - component: {fileID: 4222296651660118454}
   - component: {fileID: 8194101968021491858}
   - component: {fileID: 816848968075754703}
+  - component: {fileID: 5265633846684572942}
+  - component: {fileID: 508557560915863246}
   - component: {fileID: 1769688813859850565}
   - component: {fileID: 8265805400424321235}
   - component: {fileID: 2978518932189602407}
@@ -383,33 +384,6 @@ MonoBehaviour:
     value: 0
   Running: 0
   restoredEnergy: 100
---- !u!114 &8514225349613499570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721249647857998162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb51bb0d4e4a70a4ab792a268342304c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActionName: Heal Ally
-  Cost: 1
-  Target: {fileID: 0}
-  TargetTag: 
-  Duration: 0
-  Agent: {fileID: 0}
-  preConditions:
-  - key: hasMedicine
-    value: 0
-  - key: HurtColonist
-    value: 0
-  postConditions:
-  - key: AllyHealed
-    value: 0
-  Running: 0
 --- !u!114 &4222296651660118454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,6 +459,59 @@ MonoBehaviour:
     value: 0
   postConditions:
   - key: hasMedicine
+    value: 0
+  Running: 0
+--- !u!114 &5265633846684572942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721249647857998162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284bc7715a786d44db81c957bc9a34e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionName: Get Healed
+  Cost: 1
+  Target: {fileID: 0}
+  TargetTag: 
+  Duration: 0
+  Agent: {fileID: 0}
+  preConditions:
+  - key: NeedsToHeal
+    value: 0
+  postConditions:
+  - key: HealthRestored
+    value: 0
+  Running: 0
+  healthRestored: 100
+--- !u!114 &508557560915863246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721249647857998162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f76065a76fb1a844a973eb37ba10fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionName: Heal At Bed
+  Cost: 1
+  Target: {fileID: 0}
+  TargetTag: 
+  Duration: 5
+  Agent: {fileID: 0}
+  preConditions:
+  - key: HurtColonists
+    value: 0
+  - key: hasMedicine
+    value: 0
+  postConditions:
+  - key: AllyHealed
     value: 0
   Running: 0
 --- !u!114 &1769688813859850565

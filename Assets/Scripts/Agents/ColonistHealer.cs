@@ -20,6 +20,8 @@ public class ColonistHealer : GAgent
         goals.Add(energyRestored, 3);
         SubGoal hungerRestored = new SubGoal("HungerRestored", 1, false);
         goals.Add(hungerRestored, 5);
+        SubGoal healthRestored = new SubGoal("HealthRestored", 1, false);
+        goals.Add(healthRestored, 6);
         SubGoal medicineCollected = new SubGoal("MedicineGathered", 1, false);
         goals.Add(medicineCollected, 2);
     }

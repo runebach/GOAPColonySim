@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GetAlly : GAction
+public class HealAtBed : GAction
 {
-    GameObject resource;
+
+    GAgent gAgent;
     
 
     public override bool PrePerform()
@@ -14,22 +15,16 @@ public class GetAlly : GAction
         if(Target == null){
             return false;
         }
-        resource = GWorld.Instance.GetQueue("beds").RemoveResource();
-        if(resource != null){
-            Inventory.AddItem(resource);
-        }
-        else{
-            GWorld.Instance.GetQueue("colonists").AddResource(Target);
-            Target = null;
+        if(Target == this.gameObject){
             return false;
         }
         return true;
     }
     public override bool PostPerform()
     {
-        if(Target != null){
-            Target.GetComponent<GAgent>().Inventory.AddItem(resource);
-        }
+        GWorld.Instance.GetWorld().ModifyState("gatheredMedicine", -1);
+        gAgent = Target.GetComponent<GAgent>();
+        gAgent.gStateMonitors.FirstOrDefault(x => x.Name == "Health").UpdateStateStrength(100);
         return true;
     }
 

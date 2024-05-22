@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 7712487350467425906}
   - component: {fileID: 363923334577754510}
   - component: {fileID: 5558439457455430391}
+  - component: {fileID: 5130878021886712443}
   - component: {fileID: 1769688813859850565}
   - component: {fileID: 8265805400424321235}
   - component: {fileID: 2978518932189602407}
@@ -483,6 +484,31 @@ MonoBehaviour:
     value: 0
   Running: 0
   restoredEnergy: 100
+--- !u!114 &5130878021886712443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721249647857998162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80760cf69e801f409a6fb8b3761c06f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionName: Wait In Bed
+  Cost: 1
+  Target: {fileID: 0}
+  TargetTag: 
+  Duration: 60
+  Agent: {fileID: 0}
+  preConditions:
+  - key: NeedsToHeal
+    value: 0
+  postConditions:
+  - key: HealthRestored
+    value: 0
+  Running: 0
 --- !u!114 &1769688813859850565
 MonoBehaviour:
   m_ObjectHideFlags: 0

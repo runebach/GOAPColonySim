@@ -22,6 +22,8 @@ public class ColonistGatherer : GAgent
         goals.Add(hungerRestored, 5);
         SubGoal goldGathered = new SubGoal("GoldGathered", 1, false);
         goals.Add(goldGathered, 2);
+        SubGoal healthRestored = new SubGoal("HealthRestored", 1, false);
+        goals.Add(healthRestored, 6);
     }
 
 
