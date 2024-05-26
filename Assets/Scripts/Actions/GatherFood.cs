@@ -9,13 +9,13 @@ public class GatherFood : GAction
     NavMeshSurface navMeshSurface;
 
     void Start(){
-        navMeshSurfaceObject = GameObject.FindGameObjectWithTag("NavMeshSurface");
+        navMeshSurfaceObject = GameObject.FindGameObjectWithTag(StaticTags.NavMeshSurface);
         navMeshSurface = navMeshSurfaceObject.GetComponent<NavMeshSurface>();
     }
 
     public override bool PrePerform()
     {
-        Target = GWorld.Instance.GetQueue("gatherableFood").RemoveResource();
+        Target = GWorld.Instance.GetQueue(StaticQueues.GatherableFood).RemoveResource();
         if(Target == null){
             return false;
         }

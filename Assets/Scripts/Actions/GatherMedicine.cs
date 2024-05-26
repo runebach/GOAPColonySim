@@ -9,13 +9,13 @@ public class GatherMedicine : GAction
     NavMeshSurface navMeshSurface;
 
     void Start(){
-        navMeshSurfaceObject = GameObject.FindGameObjectWithTag("NavMeshSurface");
+        navMeshSurfaceObject = GameObject.FindGameObjectWithTag(StaticTags.NavMeshSurface);
         navMeshSurface = navMeshSurfaceObject.GetComponent<NavMeshSurface>();
     }
 
     public override bool PrePerform()
     {
-        Target = GWorld.Instance.GetQueue("gatherableMedicine").RemoveResource();
+        Target = GWorld.Instance.GetQueue(StaticQueues.GatherableMedicine).RemoveResource();
         if(Target == null){
             return false;
         }

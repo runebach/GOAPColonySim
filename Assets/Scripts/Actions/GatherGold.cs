@@ -9,13 +9,13 @@ public class GatherGold : GAction
     NavMeshSurface navMeshSurface;
 
     void Start(){
-        navMeshSurfaceObject = GameObject.FindGameObjectWithTag("NavMeshSurface");
+        navMeshSurfaceObject = GameObject.FindGameObjectWithTag(StaticTags.NavMeshSurface);
         navMeshSurface = navMeshSurfaceObject.GetComponent<NavMeshSurface>();
     }
 
     public override bool PrePerform()
     {
-        Target = GWorld.Instance.GetQueue("gatherableGold").RemoveResource();
+        Target = GWorld.Instance.GetQueue(StaticQueues.GatherableGold).RemoveResource();
         if(Target == null){
             return false;
         }

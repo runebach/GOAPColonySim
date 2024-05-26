@@ -12,7 +12,7 @@ public class Health : GStateManager
     protected override void OnStateMinimum()
     {
         if(currentStrength <= 0){
-            GWorld.Instance.GetQueue("colonists").RemoveResource(gameObject);
+            GWorld.Instance.GetQueue(StaticQueues.Colonists).RemoveResource(gameObject);
             Destroy(gameObject);
         }
 

@@ -10,17 +10,17 @@ public class WaitInBed : GAction
 
     public override bool PrePerform()
     {
-        Target = GWorld.Instance.GetQueue("beds").RemoveResource();
+        Target = GWorld.Instance.GetQueue(StaticQueues.Beds).RemoveResource();
         if(Target == null){
             Debug.Log("cant find bed");
             return false;
         }
-        healer = GWorld.Instance.GetQueue("colonists").Queue.FirstOrDefault(x => x.GetComponent<GAgent>().GetType() == typeof(ColonistHealer));
+        healer = GWorld.Instance.GetQueue(StaticQueues.Colonists).Queue.FirstOrDefault(x => x.GetComponent<GAgent>().GetType() == typeof(ColonistHealer));
         if(healer == null){
             Debug.Log("cant find healer");
             return false;
         }
-        GWorld.Instance.GetWorld().ModifyState("HurtColonists", 1);
+        GWorld.Instance.GetWorld().ModifyState(StaticStates.HurtColonists, 1);
         Debug.Log("Found Bed");
         
         return true;

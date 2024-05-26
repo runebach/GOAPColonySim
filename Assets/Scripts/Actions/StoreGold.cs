@@ -11,8 +11,7 @@ public class StoreGold : GAction
     }
     public override bool PostPerform()
     {
-        Debug.Log("gold");
-        GWorld.Instance.GetWorld().ModifyState("GatheredGold", 1);
+        GWorld.Instance.GetWorld().ModifyState(StaticStates.GatheredGold, 1);
         return true;
     }
 

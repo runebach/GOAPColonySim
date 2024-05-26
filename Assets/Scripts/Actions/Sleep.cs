@@ -14,7 +14,7 @@ public class Sleep : GAction
     {
         agent = GetComponent<GAgent>();
         energy = agent.gStateMonitors.FirstOrDefault(x => x.GetType() == typeof(Energy));
-        Target = GWorld.Instance.GetQueue("beds").RemoveResource();
+        Target = GWorld.Instance.GetQueue(StaticQueues.Beds).RemoveResource();
         Inventory.AddItem(Target);
         energy.StopDecayRate();
         

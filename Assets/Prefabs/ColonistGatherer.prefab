@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 2978518932189602407}
   m_Layer: 0
   m_Name: ColonistGatherer
-  m_TagString: Colonists
+  m_TagString: Colonist
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

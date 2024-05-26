@@ -14,7 +14,7 @@ public class GetHealed : GAction
     {
         agent = GetComponent<GAgent>();
         health = agent.gStateMonitors.FirstOrDefault(x => x.GetType() == typeof(Health));
-        Target = Inventory.FindItemWithTag("Bed");
+        Target = Inventory.FindItemWithTag(StaticTags.Bed);
         if(Target == null){
             return false;
         }

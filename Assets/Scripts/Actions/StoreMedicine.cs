@@ -14,7 +14,7 @@ public class StoreMedicine : GAction
     }
     public override bool PostPerform()
     {
-        GWorld.Instance.GetWorld().ModifyState("GatheredMedicine", 1);
+        GWorld.Instance.GetWorld().ModifyState(StaticStates.GatheredMedicine, 1);
         return true;
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
@@ -37,13 +38,13 @@ public sealed class WorldInterface : MonoBehaviour
     }
 
     public void SelectBuildItem(int index, int cost){
-        if(GWorld.Instance.GetQueue("gatheredGold").Queue.Count >= cost){
+        if(GWorld.Instance.GetWorld().GetState(StaticStates.GatheredGold).Value >= cost){
             costToBuild = cost;
             newResourcePrefab = AllResources[index];
         }
     }
     private void BuildItem(){
-        GWorld.Instance.GetWorld().ModifyState("GatheredGold", -costToBuild);
+        GWorld.Instance.GetWorld().ModifyState(StaticStates.GatheredGold, -costToBuild);
         newResourcePrefab = null;
     }
     public void SelectObject(){

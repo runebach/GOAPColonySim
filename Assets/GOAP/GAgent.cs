@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class SubGoal{
     public Dictionary<string, int> SubGoals;
     public bool Removable;
-    public SubGoal(string goalName, int goalValue, bool removable){
+    public bool IsDefault;
+    public SubGoal(string goalName, int goalValue, bool removable, bool isDefault){
         SubGoals = new Dictionary<string, int>();
         SubGoals.Add(goalName, goalValue);
         Removable = removable;
+        IsDefault = isDefault;
     }
 }
 public class GAgent : MonoBehaviour
@@ -44,9 +47,54 @@ public class GAgent : MonoBehaviour
         invoked = false;
     }
     
+    // Is supposed to check for new plans. If there is found a new most important and possible plan that is different
+    // than the current one, set the planner object to null.
+    void ReplaceOldPlan(){
+        if(planner != null){
+            GPlanner tPlanner = new GPlanner();
+            Debug.Log(currentGoal.SubGoals.First().Key);
+            var sortedGoals = from entry in goals orderby entry.Value descending select entry;
+
+            foreach(KeyValuePair<SubGoal, int> sg in sortedGoals){
+                actionQueue = tPlanner.Plan(Actions, sg.Key.SubGoals, Beliefs);
+                if(actionQueue != null && sg.Value > currentGoal.SubGoals.First().Value  && currentGoal.IsDefault == false){
+                    planner = null;
+                    actionQueue = null;
+                }
+            }
+        }
+        
+        
+    }
+
+    // private IEnumerator DoPlanning(){
+
+    //     while(true){
+    //         yield return new WaitForSeconds(1);
+    //         if(planner == null){
+    //             planner = new GPlanner();
+    //         }
+            
+    //         var sortedGoals = from entry in goals orderby entry.Value descending select entry;
+    //         foreach(KeyValuePair<SubGoal, int> sg in sortedGoals){
+    //             Queue<GAction> tempQueue = planner.Plan(Actions, sg.Key.SubGoals, Beliefs);
+    //             SubGoal tempGoal;
+    //             if(tempQueue != null){
+    //                 tempGoal = sg.Key;
+    //                 if(tempGoal != currentGoal && tempGoal.IsDefault == false){
+    //                     currentGoal = tempGoal;
+    //                     actionQueue = tempQueue;
+    //                 }
+    //             }
+    //         }
+
+    //     }
+    // }
+
     // Update is called once per frame
     void LateUpdate()
     {
+        // Invokes CompleteAction method if close enough to target
         if(CurrentAction != null && CurrentAction.Running){
             float distanceToTarget = Vector3.Distance(destination, transform.position);
             if(distanceToTarget < actionDistance){
@@ -58,6 +106,7 @@ public class GAgent : MonoBehaviour
             return;
         }
 
+        // If agent has no plan, begin planning new plan
         if(planner == null || actionQueue == null){
             planner = new GPlanner();
 
@@ -65,18 +114,23 @@ public class GAgent : MonoBehaviour
             foreach(KeyValuePair<SubGoal, int> sg in sortedGoals){
                 actionQueue = planner.Plan(Actions, sg.Key.SubGoals, Beliefs);
                 if(actionQueue != null){
-                    currentGoal =sg.Key;
+                    currentGoal = sg.Key;
                     break;
                 }
             }
         }
 
+
+        //If no more actions in plan, wipe the plan and ready for new plan
         if(actionQueue != null && actionQueue.Count == 0){
             if(currentGoal.Removable){
                 goals.Remove(currentGoal);
             }
             planner = null;
+            actionQueue = null;
         }
+
+        // if still more actions, find next action in queue and do the stuff.
         if(actionQueue != null && actionQueue.Count > 0){
             CurrentAction = actionQueue.Dequeue();
             if(CurrentAction.PrePerform()){

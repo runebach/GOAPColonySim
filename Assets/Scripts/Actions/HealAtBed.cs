@@ -11,7 +11,7 @@ public class HealAtBed : GAction
 
     public override bool PrePerform()
     {
-        Target = GWorld.Instance.GetQueue("hurtColonists").RemoveResource();
+        Target = GWorld.Instance.GetQueue(StaticQueues.HurtColonists).RemoveResource();
         if(Target == null){
             return false;
         }
@@ -22,9 +22,9 @@ public class HealAtBed : GAction
     }
     public override bool PostPerform()
     {
-        GWorld.Instance.GetWorld().ModifyState("gatheredMedicine", -1);
+        GWorld.Instance.GetWorld().ModifyState(StaticStates.GatheredMedicine, -1);
         gAgent = Target.GetComponent<GAgent>();
-        gAgent.gStateMonitors.FirstOrDefault(x => x.Name == "Health").UpdateStateStrength(100);
+        gAgent.gStateMonitors.FirstOrDefault(x => x.GetType() == typeof(Health)).UpdateStateStrength(100);
         return true;
     }
 

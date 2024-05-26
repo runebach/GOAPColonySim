@@ -62,11 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4822577883306273500, guid: d8af70a120f5f7941aa99dc440a4ced0, type: 3}
       propertyPath: nameOfResourceQueue
-      value: gatherableFood
+      value: GatherableFood
       objectReference: {fileID: 0}
     - target: {fileID: 8847536880616825221, guid: d8af70a120f5f7941aa99dc440a4ced0, type: 3}
       propertyPath: m_Name
-      value: Spawner Variant
+      value: BerrySpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

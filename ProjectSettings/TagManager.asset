@@ -11,7 +11,7 @@ TagManager:
   - GatherableGold
   - WInterface
   - GatherableMedicine
-  - Colonists
+  - Colonist
   layers:
   - Default
   - TransparentFX

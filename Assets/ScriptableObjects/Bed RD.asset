@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Bed RD
   m_EditorClassIdentifier: 
   ResourceTag: Bed
-  ResourceQueue: beds
-  ResourceState: FreeBed
+  ResourceQueue: Beds
+  ResourceState: Beds

@@ -11,7 +11,7 @@ public class StoreFood : GAction
     }
     public override bool PostPerform()
     {
-        GWorld.Instance.GetWorld().ModifyState("GatheredFood", 1);
+        GWorld.Instance.GetWorld().ModifyState(StaticStates.GatheredFood, 1);
         return true;
     }
 

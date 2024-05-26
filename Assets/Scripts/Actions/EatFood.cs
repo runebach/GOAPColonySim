@@ -13,8 +13,8 @@ public class EatFood : GAction
     public override bool PrePerform()
     {
         agent = GetComponent<GAgent>();
-        hunger = agent.gStateMonitors.FirstOrDefault(x => x.Name == "Hunger");
-        GWorld.Instance.GetWorld().ModifyState("GatheredFood", -1);
+        hunger = agent.gStateMonitors.FirstOrDefault(x => x.GetType() == typeof(Hunger));
+        GWorld.Instance.GetWorld().ModifyState(StaticStates.GatheredFood, -1);
         return true;
     }
     public override bool PostPerform()

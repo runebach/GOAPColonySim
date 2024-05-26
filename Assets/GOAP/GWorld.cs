@@ -57,24 +57,24 @@ public sealed class GWorld
 
     static GWorld(){
         world = new WorldStates();
-        colonists = new ResourceQueue("Colonists", "Colonists", world);
-        resources.Add("colonists", colonists);
+        colonists = new ResourceQueue(StaticTags.Colonist, StaticStates.Colonists, world);
+        resources.Add(StaticQueues.Colonists, colonists);
         hurtColonists = new ResourceQueue("", "", world);
-        resources.Add("hurtColonists", hurtColonists);
-        gatheredFood = new ResourceQueue("", "", world);
-        resources.Add("gatheredFood", gatheredFood);
-        gatherableFood = new ResourceQueue("GatherableFood", "GatherableFood", world);
-        resources.Add("gatherableFood", gatherableFood);
-        beds = new ResourceQueue("Bed", "FreeBed", world);
-        resources.Add("beds", beds);
-        gatherableGold = new ResourceQueue("GatherableGold", "GatherableGold", world);
-        resources.Add("gatherableGold", gatherableGold);
-        gatheredGold = new ResourceQueue("", "", world);
-        resources.Add("gatheredGold", gatheredGold);
-        gatherableMedicine = new ResourceQueue("GatherableMedicine", "GatherableMedicine", world);
-        resources.Add("gatherableMedicine", gatherableMedicine);
-        gatheredMedicine = new ResourceQueue("", "", world);
-        resources.Add("gatheredMedicine", gatheredMedicine);
+        resources.Add(StaticQueues.HurtColonists, hurtColonists);
+        // gatheredFood = new ResourceQueue("", "", world);
+        // resources.Add("gatheredFood", gatheredFood);
+        gatherableFood = new ResourceQueue(StaticTags.GatherableFood, StaticStates.GatherableFood, world);
+        resources.Add(StaticQueues.GatherableFood, gatherableFood);
+        beds = new ResourceQueue(StaticTags.Bed, StaticStates.Beds, world);
+        resources.Add(StaticQueues.Beds, beds);
+        gatherableGold = new ResourceQueue(StaticTags.GatherableGold, StaticStates.GatherableGold, world);
+        resources.Add(StaticQueues.GatherableGold, gatherableGold);
+        // gatheredGold = new ResourceQueue("", "", world);
+        // resources.Add("gatheredGold", gatheredGold);
+        gatherableMedicine = new ResourceQueue(StaticTags.GatherableMedicine, StaticStates.GatherableMedicine, world);
+        resources.Add(StaticQueues.GatherableMedicine, gatherableMedicine);
+        // gatheredMedicine = new ResourceQueue("", "", world);
+        // resources.Add("gatheredMedicine", gatheredMedicine);
 
         Time.timeScale = 5;
     }
