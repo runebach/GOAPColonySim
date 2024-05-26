@@ -8,11 +8,13 @@ public class SubGoal{
     public Dictionary<string, int> SubGoals;
     public bool Removable;
     public bool IsDefault;
+    public string Name;
     public SubGoal(string goalName, int goalValue, bool removable, bool isDefault){
         SubGoals = new Dictionary<string, int>();
         SubGoals.Add(goalName, goalValue);
         Removable = removable;
         IsDefault = isDefault;
+        Name = goalName;
     }
 }
 public class GAgent : MonoBehaviour
@@ -26,7 +28,7 @@ public class GAgent : MonoBehaviour
     public float actionDistance = 2.0f;
     private GPlanner planner;
     private Queue<GAction> actionQueue;
-    private SubGoal currentGoal;
+    public SubGoal currentGoal;
     private Vector3 destination = Vector3.zero;
     private bool invoked = false;
     // Start is called before the first frame update
@@ -49,23 +51,23 @@ public class GAgent : MonoBehaviour
     
     // Is supposed to check for new plans. If there is found a new most important and possible plan that is different
     // than the current one, set the planner object to null.
-    void ReplaceOldPlan(){
-        if(planner != null){
-            GPlanner tPlanner = new GPlanner();
-            Debug.Log(currentGoal.SubGoals.First().Key);
-            var sortedGoals = from entry in goals orderby entry.Value descending select entry;
+    // void ReplaceOldPlan(){
+    //     if(planner != null){
+    //         GPlanner tPlanner = new GPlanner();
+    //         Debug.Log(currentGoal.SubGoals.First().Key);
+    //         var sortedGoals = from entry in goals orderby entry.Value descending select entry;
 
-            foreach(KeyValuePair<SubGoal, int> sg in sortedGoals){
-                actionQueue = tPlanner.Plan(Actions, sg.Key.SubGoals, Beliefs);
-                if(actionQueue != null && sg.Value > currentGoal.SubGoals.First().Value  && currentGoal.IsDefault == false){
-                    planner = null;
-                    actionQueue = null;
-                }
-            }
-        }
+    //         foreach(KeyValuePair<SubGoal, int> sg in sortedGoals){
+    //             actionQueue = tPlanner.Plan(Actions, sg.Key.SubGoals, Beliefs);
+    //             if(actionQueue != null && sg.Value > currentGoal.SubGoals.First().Value  && currentGoal.IsDefault == false){
+    //                 planner = null;
+    //                 actionQueue = null;
+    //             }
+    //         }
+    //     }
         
         
-    }
+    // }
 
     // private IEnumerator DoPlanning(){
 

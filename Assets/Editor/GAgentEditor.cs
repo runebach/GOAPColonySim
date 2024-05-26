@@ -21,6 +21,7 @@ public class GAgentVisualEditor : Editor
         GAgentVisual agent = (GAgentVisual) target;
         GUILayout.Label("Name: " + agent.name);
         GUILayout.Label("Current Action: " + agent.gameObject.GetComponent<GAgent>().CurrentAction);
+        GUILayout.Label("Current Goal: " + agent.gameObject.GetComponent<GAgent>().currentGoal.Name);
         GUILayout.Label("Actions: ");
         foreach (GAction a in agent.gameObject.GetComponent<GAgent>().Actions)
         {
