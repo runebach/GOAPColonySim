@@ -49,49 +49,7 @@ public class GAgent : MonoBehaviour
         invoked = false;
     }
     
-    // Is supposed to check for new plans. If there is found a new most important and possible plan that is different
-    // than the current one, set the planner object to null.
-    // void ReplaceOldPlan(){
-    //     if(planner != null){
-    //         GPlanner tPlanner = new GPlanner();
-    //         Debug.Log(currentGoal.SubGoals.First().Key);
-    //         var sortedGoals = from entry in goals orderby entry.Value descending select entry;
 
-    //         foreach(KeyValuePair<SubGoal, int> sg in sortedGoals){
-    //             actionQueue = tPlanner.Plan(Actions, sg.Key.SubGoals, Beliefs);
-    //             if(actionQueue != null && sg.Value > currentGoal.SubGoals.First().Value  && currentGoal.IsDefault == false){
-    //                 planner = null;
-    //                 actionQueue = null;
-    //             }
-    //         }
-    //     }
-        
-        
-    // }
-
-    // private IEnumerator DoPlanning(){
-
-    //     while(true){
-    //         yield return new WaitForSeconds(1);
-    //         if(planner == null){
-    //             planner = new GPlanner();
-    //         }
-            
-    //         var sortedGoals = from entry in goals orderby entry.Value descending select entry;
-    //         foreach(KeyValuePair<SubGoal, int> sg in sortedGoals){
-    //             Queue<GAction> tempQueue = planner.Plan(Actions, sg.Key.SubGoals, Beliefs);
-    //             SubGoal tempGoal;
-    //             if(tempQueue != null){
-    //                 tempGoal = sg.Key;
-    //                 if(tempGoal != currentGoal && tempGoal.IsDefault == false){
-    //                     currentGoal = tempGoal;
-    //                     actionQueue = tempQueue;
-    //                 }
-    //             }
-    //         }
-
-    //     }
-    // }
 
     // Update is called once per frame
     void LateUpdate()
@@ -156,4 +114,50 @@ public class GAgent : MonoBehaviour
             }
         }
     }
+
+
+
+    // Is supposed to check for new plans. If there is found a new most important and possible plan that is different
+    // than the current one, set the planner object to null.
+    // void ReplaceOldPlan(){
+    //     if(planner != null){
+    //         GPlanner tPlanner = new GPlanner();
+    //         Debug.Log(currentGoal.SubGoals.First().Key);
+    //         var sortedGoals = from entry in goals orderby entry.Value descending select entry;
+
+    //         foreach(KeyValuePair<SubGoal, int> sg in sortedGoals){
+    //             actionQueue = tPlanner.Plan(Actions, sg.Key.SubGoals, Beliefs);
+    //             if(actionQueue != null && sg.Value > currentGoal.SubGoals.First().Value  && currentGoal.IsDefault == false){
+    //                 planner = null;
+    //                 actionQueue = null;
+    //             }
+    //         }
+    //     }
+        
+        
+    // }
+
+    // private IEnumerator DoPlanning(){
+
+    //     while(true){
+    //         yield return new WaitForSeconds(1);
+    //         if(planner == null){
+    //             planner = new GPlanner();
+    //         }
+            
+    //         var sortedGoals = from entry in goals orderby entry.Value descending select entry;
+    //         foreach(KeyValuePair<SubGoal, int> sg in sortedGoals){
+    //             Queue<GAction> tempQueue = planner.Plan(Actions, sg.Key.SubGoals, Beliefs);
+    //             SubGoal tempGoal;
+    //             if(tempQueue != null){
+    //                 tempGoal = sg.Key;
+    //                 if(tempGoal != currentGoal && tempGoal.IsDefault == false){
+    //                     currentGoal = tempGoal;
+    //                     actionQueue = tempQueue;
+    //                 }
+    //             }
+    //         }
+
+    //     }
+    // }
 }
