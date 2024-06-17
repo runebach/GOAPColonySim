@@ -35,17 +35,21 @@ public sealed class WorldInterface : MonoBehaviour
         SelectObject();
         MoveObject();
         ReleaseObject();
+        RotateObject();
+        
     }
 
     public void SelectBuildItem(int index, int cost){
-        if(GWorld.Instance.GetWorld().GetState(StaticStates.GatheredGold).Value >= cost){
+        if(GWorld.Instance.GetWorld().GetState(StaticStates.GatheredGold).Value >= cost || true){
             costToBuild = cost;
             newResourcePrefab = AllResources[index];
         }
     }
     private void BuildItem(){
         GWorld.Instance.GetWorld().ModifyState(StaticStates.GatheredGold, -costToBuild);
-        newResourcePrefab = null;
+        if(GWorld.Instance.GetWorld().GetState(StaticStates.GatheredGold).Value < costToBuild || false){
+            newResourcePrefab = null;
+        }
     }
     public void SelectObject(){
         if(Input.GetMouseButtonDown(0)){
@@ -60,13 +64,16 @@ public sealed class WorldInterface : MonoBehaviour
             offSetCalc = false;
             clickOffset = Vector3.zero;
             Resource r = hit.transform.gameObject.GetComponentInParent<Resource>();
-
+            Debug.Log("r: " + r);
+            Debug.Log("newResourcePrefab: " + newResourcePrefab);
             if(r != null){
+                Debug.Log("r isnt null");
                 focusObject = hit.transform.gameObject;
                 focusObjectData = r.Info;
             }
 
             else if(newResourcePrefab != null){
+                Debug.Log("Attempt to build");
                 goalPos = hit.point;
                 focusObject = Instantiate(newResourcePrefab, goalPos, newResourcePrefab.transform.rotation);
                 focusObjectData = focusObject.GetComponent<Resource>().Info;

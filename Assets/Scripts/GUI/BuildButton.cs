@@ -6,8 +6,12 @@ public class BuildButton : MonoBehaviour
 {
     public int index;
     public int cost;
+    public WorldInterface worldInterface;
+    public void Start(){
+        worldInterface = GameObject.FindGameObjectWithTag("WInterface").GetComponent<WorldInterface>();
+    }
 
     public void BuildObject(){
-        WorldInterface.Instance.SelectBuildItem(index, cost);
+        worldInterface.SelectBuildItem(index, cost);
     }
 }
