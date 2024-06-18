@@ -13,7 +13,7 @@ public class Energy : GStateManager
     protected override void OnStateMinimum()
     {
         if(currentStrength <= 0){
-            speed = SpeedModifier;
+            // speed = SpeedModifier;
 
         }
         else{

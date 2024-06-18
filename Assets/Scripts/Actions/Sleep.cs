@@ -23,7 +23,7 @@ public class Sleep : GAction
     public override bool PostPerform()
     {
         
-        GWorld.Instance.GetQueue("beds").AddResource(Target);
+        GWorld.Instance.GetQueue(StaticQueues.Beds).AddResource(Target);
         Inventory.RemoveItem(Target);
         energy.UpdateStateStrength(restoredEnergy);
         energy.StartDecayRate();
